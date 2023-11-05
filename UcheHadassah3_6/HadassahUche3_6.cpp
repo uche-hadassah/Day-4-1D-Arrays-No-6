@@ -30,38 +30,9 @@ int main()
 	cin >> option;
 	while(option < 1 || option > 2)//Validating the options
 	{
-		cout << "Invalod option! Please enter either 1 or 2:";
+		cout << "Invalid option! Please enter either 1 or 2:";
 		cin >> option;
 	}
-	if (option == 1)//When option is 1
-	{
-		int i = 0;
-		cout << "Enter a rating(0 to 20):";
-		do
-		{
-			cin >> Rating;
-			while (Rating < 0 || Rating>20)//If the rating is not within the range of 0 -20
-			{
-				cout << "Invalid Rating; Enter from 0 to 20:";
-				cin >> Rating;
-			}
-			if (Rating == i)
-			{
-				frequency[i]++;
-			}
-			i++;
-		} while (Rating < 0 || Rating > 20);
-	}
-	else
-	{
-		for(int j = 0;j <= 20;j++)
-		{
-			cout << "Rating: " << j << "\t\tFrequency: ";
-			while (frequency[j] > -1)
-			{
-				cout << "*";
-			}
-		}
-	}
+	
 	return 0;
 }
