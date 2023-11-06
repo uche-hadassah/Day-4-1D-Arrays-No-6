@@ -22,19 +22,9 @@ int main()
 {
 	int Rating[MAX] = { 0 };
 	int Limit;
-	int option;
 	cout << "How many students will be voting?";
 	cin >> Limit;//Gets the total number of votes from the user
-	cout << "MENU" << endl;
-	cout << "1: Enter the ratings" << endl;
-	cout << "2: Output Results and exit" << endl;
-	cout << "Enter an option:";
-	cin >> option;
-	while(option < 1 || option > 2)//Validating the options
-	{
-		cout << "Invalid option! Please enter either 1 or 2:";
-		cin >> option;
-	}
+	
 	do
 	{
 		int rating;
@@ -51,13 +41,10 @@ int main()
 		}
 
 		Limit--;
-	} while (option == 1 && Limit > 0);//Gets the ratings from the user and stores them in an array
-	while (option == 2)
-	{
+	} while (Limit > 0);//Gets the ratings from the user and stores them in an array
 		for (int i = 0; i < MAX; i++)
 		{
 			cout << "Rating: " << i << "\tFrequency: " << Rating[i] << endl;
         }
-	}
 	return 0;
 }
