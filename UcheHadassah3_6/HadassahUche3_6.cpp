@@ -17,7 +17,7 @@ entered should be defined by the user. Input ratings should be validated so that
 do not fall outside the valid range.*/
 #include<iostream>
 using namespace std;
-const int MAX = 20;
+const int MAX = 21;
 int main()
 {
 	int Rating[MAX] = { 0 };
@@ -32,7 +32,7 @@ int main()
 		cin >> rating;
 		if (rating >= 0 && rating <=20)
 		{
-			Rating[rating++];
+			Rating[rating]++;
 		}
 		else
 		{
@@ -42,9 +42,14 @@ int main()
 
 		Limit--;
 	} while (Limit > 0);//Gets the ratings from the user and stores them in an array
-		for (int i = 0; i < MAX; i++)
+	for (int i = 0; i < MAX; i++)
+	{
+		cout << "Rating: " << i << "\tFrequency: ";
+		for (int j = 0; j < Rating[i]; j++)
 		{
-			cout << "Rating: " << i << "\tFrequency: " << Rating[i] << endl;
-        }
+				cout << "*";
+		}
+		cout << endl;
+    }
 	return 0;
 }
