@@ -17,14 +17,16 @@ entered should be defined by the user. Input ratings should be validated so that
 do not fall outside the valid range.*/
 #include<iostream>
 using namespace std;
-const int MAX = 100;
+const int MAX = 20;
 int main()
 {
-	int Rating;
-	char frequency[] = { 0 };
+	int Rating[MAX] = { 0 };
+	int Limit;
 	int option;
+	cout << "How many students will be voting?";
+	cin >> Limit;//Gets the total number of votes from the user
 	cout << "MENU" << endl;
-	cout << "1: Enter a rating" << endl;
+	cout << "1: Enter the ratings" << endl;
 	cout << "2: Output Results and exit" << endl;
 	cout << "Enter an option:";
 	cin >> option;
@@ -33,6 +35,29 @@ int main()
 		cout << "Invalid option! Please enter either 1 or 2:";
 		cin >> option;
 	}
-	
+	do
+	{
+		int rating;
+		cout << "Enter a rating:";
+		cin >> rating;
+		if (rating >= 0 && rating <=20)
+		{
+			Rating[rating++];
+		}
+		else
+		{
+			cout << "Invalid rating!Please enter a valid rating:";
+			cin >> rating;
+		}
+
+		Limit--;
+	} while (option == 1 && Limit > 0);//Gets the ratings from the user and stores them in an array
+	while (option == 2)
+	{
+		for (int i = 0; i < MAX; i++)
+		{
+			cout << "Rating: " << i << "\tFrequency: " << Rating[i] << endl;
+        }
+	}
 	return 0;
 }
